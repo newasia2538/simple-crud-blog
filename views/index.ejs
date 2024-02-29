@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+<h1> ESSAYS </h1>
+        <% if(locals.essays){ %>
+            <ul>
+                <% locals.essays.forEach(item => { %>
+                    <li>
+                        <a href="/<%= item.id %>"><%= item.subject %></a>
+                        <form action="/edit<%= item.id %>" method="GET"><button class="button-edit" > EDIT </button></form>
+                        <form action="/delete/<%= item.id %>" method="POST"><button class="button-delete"> DELETE </button></form>
+                    </li>
+                <% }); %>
+            </ul>
+        <% }else{ %>
+            <h2>Have no essay was created yet, please produce new essay.</h2>
+        <% } %>
+
+    <form action="/create" method="GET">
+        <button class="button-submit">CREATE</button>
+    </form>
+
+    
+<%- include('./partials/footer.ejs') %>

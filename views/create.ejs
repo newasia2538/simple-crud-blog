@@ -1,0 +1,23 @@
+<%- include('./partials/header.ejs') %>
+    <% if (locals.essay) { %>
+        <h1> edit ESSAY </h1>
+        <form action="/edit<%= locals.essay.id %>" method="POST">
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject" value="<%= locals.essay.subject %>">
+            <br>
+            <label for="detail">Detail:</label><br>
+            <textarea type="text" id="detail" name="detail" value=""><%= locals.essay.detail %></textarea>
+            <br><br>
+            <button class="button-submit">Save</button>
+        </form>
+    <% }else{ %>
+        <h1> New ESSAY </h1>
+    <form action="/submit" method="POST">
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" value=""><br>
+        <label for="detail">Detail:</label><br>
+        <textarea type="text" id="detail" name="detail" value=""></textarea><br><br>
+        <button class="button-submit">CREATE</button>
+    </form>
+    <% } %>
+<%- include('./partials/footer.ejs') %>

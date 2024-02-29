@@ -1,0 +1,11 @@
+<%- include('./partials/header.ejs') %>
+<% if (locals.essay) { %>
+    <h1> <%= locals.essay.subject %> </h1>
+    <h3>
+        <%= locals.essay.detail %>
+    </h3>
+<% }else{ %>
+    <h1>Something Error !</h1>
+<% } %>
+    
+<%- include('./partials/footer.ejs') %>
